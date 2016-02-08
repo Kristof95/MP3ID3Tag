@@ -130,7 +130,6 @@ public class ID3Tag
 		return result;
 	}
 
-	
 	public static byte[] tail(File file)
     {
         try
@@ -154,6 +153,7 @@ public class ID3Tag
         return null;
     }
 		
+	
 	@Override
 	public String toString()
 	{
@@ -183,10 +183,6 @@ public class ID3Tag
 	{
 		byte[] id3Bytes = tail(new File("C:\\Users\\"+MACHINENAME+"\\Desktop\\Workspace\\MP3_ID3Tag\\neil.mp3"));
 		ID3Tag tag = ID3Tag.parse(id3Bytes);
-		System.out.println(tag.getTitle());
-		System.out.println(tag.getArtist());
-		System.out.println(tag.getAlbum());
-		System.out.println(tag.getComment());
-		System.out.println(tag.getYear());
+		System.out.println(tag.toString());
 	}
 }
