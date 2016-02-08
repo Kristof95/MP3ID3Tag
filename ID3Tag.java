@@ -3,12 +3,73 @@ import java.io.*;
 
 public class ID3Tag
 {
+	private static final String MACHINENAME = System.getProperty("user.name");
 	private String title;
 	private String artist;
 	private String album;
 	private String year;
 	private String comment;
 	private String genre;
+	
+	public String getTitle()
+	{
+		return title;
+	}
+
+	public void setTitle(String title)
+	{
+		this.title = title;
+	}
+
+	public String getArtist()
+	{
+		return artist;
+	}
+
+	public void setArtist(String artist)
+	{
+		this.artist = artist;
+	}
+
+	public String getAlbum()
+	{
+		return album;
+	}
+
+	public void setAlbum(String album)
+	{
+		this.album = album;
+	}
+
+	public String getYear()
+	{
+		return year;
+	}
+
+	public void setYear(String year)
+	{
+		this.year = year;
+	}
+
+	public String getComment()
+	{
+		return comment;
+	}
+
+	public void setComment(String comment)
+	{
+		this.comment = comment;
+	}
+
+	public String getGenre()
+	{
+		return genre;
+	}
+
+	public void setGenre(String genre)
+	{
+		this.genre = genre;
+	}
 	
 	public ID3Tag(String title, String artist, String album, String year, String comment, String genre)
 	{
@@ -92,67 +153,7 @@ public class ID3Tag
         }
         return null;
     }
-	
-	public String getTitle()
-	{
-		return title;
-	}
-
-	public void setTitle(String title)
-	{
-		this.title = title;
-	}
-
-	public String getArtist()
-	{
-		return artist;
-	}
-
-	public void setArtist(String artist)
-	{
-		this.artist = artist;
-	}
-
-	public String getAlbum()
-	{
-		return album;
-	}
-
-	public void setAlbum(String album)
-	{
-		this.album = album;
-	}
-
-	public String getYear()
-	{
-		return year;
-	}
-
-	public void setYear(String year)
-	{
-		this.year = year;
-	}
-
-	public String getComment()
-	{
-		return comment;
-	}
-
-	public void setComment(String comment)
-	{
-		this.comment = comment;
-	}
-
-	public String getGenre()
-	{
-		return genre;
-	}
-
-	public void setGenre(String genre)
-	{
-		this.genre = genre;
-	}
-	
+		
 	@Override
 	public String toString()
 	{
@@ -175,13 +176,12 @@ public class ID3Tag
 		sb.append("Genre");
 		sb.append(genre);
 		sb.append("\n");
-		return sb.toString();
-		
+		return sb.toString();	
 	}
 	
 	public static void main(String[] args)
 	{
-		byte[] id3Bytes = tail(new File("C:\\Users\\Kristof\\Desktop\\Workspace\\MP3_ID3Tag\\neil.mp3"));
+		byte[] id3Bytes = tail(new File("C:\\Users\\"+MACHINENAME+"\\Desktop\\Workspace\\MP3_ID3Tag\\neil.mp3"));
 		ID3Tag tag = ID3Tag.parse(id3Bytes);
 		System.out.println(tag.getTitle());
 		System.out.println(tag.getArtist());
